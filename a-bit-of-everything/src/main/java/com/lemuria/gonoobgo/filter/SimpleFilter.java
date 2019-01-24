@@ -8,6 +8,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,7 +37,8 @@ public class SimpleFilter implements Filter{
 		// TODO Auto-generated method stub
 		System.out.println("SimpleFilter doFilter");
 		logger.info("SimpleFilter doFilter:"+clazz);
-		
+		HttpServletRequest arequest= (HttpServletRequest) request;
+		logger.info(arequest.getRequestURI());
 		chain.doFilter(request, response);
 	}
 

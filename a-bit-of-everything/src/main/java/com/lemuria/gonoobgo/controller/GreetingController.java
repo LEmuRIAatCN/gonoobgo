@@ -2,6 +2,7 @@ package com.lemuria.gonoobgo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -85,7 +86,9 @@ public class GreetingController {
     @ResponseBody
     public ModelMap sayHello3() {
         System.out.println(testServiceC.tsTest2("asdf", "kdkdk"));
-        return null;
+        Map map = new ModelMap();
+        map.put("adf","sdfasdf");
+        return (ModelMap)map;
     }
 
     class RunnableTest implements Runnable{
