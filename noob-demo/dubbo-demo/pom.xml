@@ -12,9 +12,10 @@
     <packaging>pom</packaging>
     <modules>
         <module>dubbo-consumer</module>
+        <module>dubbo-provider</module>
     </modules>
     <properties>
-        <dubbo_version>2.6.5</dubbo_version>
+        <dubbo_version>2.6.2</dubbo_version>
     </properties>
 
 

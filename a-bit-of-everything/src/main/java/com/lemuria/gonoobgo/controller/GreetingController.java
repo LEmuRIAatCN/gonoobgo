@@ -1,21 +1,9 @@
 package com.lemuria.gonoobgo.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.atomic.AtomicLong;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
-
-import com.alibaba.dubbo.common.threadpool.ThreadPool;
 import com.lemuria.gonoobgo.dao.TVShowsDAO;
 import com.lemuria.gonoobgo.dubbo.TestService;
 import com.lemuria.gonoobgo.po.TVShowsPO;
+import com.lemuria.gonoobgo.pojo.Greeting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +11,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lemuria.gonoobgo.pojo.Greeting;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class GreetingController {
 	private static final String template = "Hello, %s!";
@@ -83,7 +78,7 @@ public class GreetingController {
     }
 
     @RequestMapping("/hello3")
-    @ResponseBody
+    //@ResponseBody
     public ModelMap sayHello3() {
         System.out.println(testServiceC.tsTest2("asdf", "kdkdk"));
         Map map = new ModelMap();

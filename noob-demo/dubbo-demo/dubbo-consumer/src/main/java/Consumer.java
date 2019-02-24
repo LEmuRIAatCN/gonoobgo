@@ -15,12 +15,16 @@
  * limitations under the License.
  */
 
-import com.alibaba.dubbo.rpc.RpcContext;
-import com.lemuria.gonoobgo.dubbo.DemoService;
+import com.alibaba.csp.sentinel.concurrent.NamedThreadFactory;
 import com.lemuria.gonoobgo.dubbo.TestService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class Consumer {
+    private static final ExecutorService pool = Executors.newFixedThreadPool(10,
+            new NamedThreadFactory("dubbo-consumer-pool"));
 
     /**
      * To get ipv6 address to work, add
@@ -28,27 +32,30 @@ public class Consumer {
      * before running your application.
      */
     public static void main(String[] args) {
+
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring/dubbo-demo-consumer.xml"});
         context.start();
-        DemoService demoService = (DemoService) context.getBean("demoService"); // get remote service proxy
-        TestService testService = (TestService) context.getBean("noobService"); // get remote service proxy
+        TestService testService = (TestService) context.getBean("testService"); // get remote service proxy
+        //TestService testService = (TestService) context.getBean("noobService"); // get remote service proxy
         //GenericService noob = (GenericService) context.getBean("noob"); // get remote service proxy
-        int i=1;
-        while (true) {
-            try {
+        //while (true) {
+        for (int i = 0; i < 100; i++) {
+            pool.submit(() -> {
+                try {
 
-                Thread.sleep(1000);
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                //Object result = noob.$invoke("sayHello", new String[]{"java.lang.String","java.lang.String"}, new Object[] {"World"," "+i});
-                ;
-                System.out.println(testService.tsTest2("123qqqqq",2));
-                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                RpcContext.getContext().setAttachment(i+"",i+"lal");
-                String hello = demoService.sayHello("world"); // call remote method
-                System.out.println(hello); // get result
-            } catch (Throwable throwable) {
-                throwable.printStackTrace();
-            }
+                    //Thread.sleep(1000);
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    //Object result = noob.$invoke("sayHello", new String[]{"java.lang.String","java.lang.String"}, new Object[] {"World"," "+i});
+                    ;
+                    System.out.println(testService.tsTest2("asdf", "hahah"));
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    //RpcContext.getContext().setAttachment(i + "", i + "lal");
+
+                } catch (Throwable throwable) {
+                    throwable.printStackTrace();
+                }
+            });
         }
+        //}
     }
 }
