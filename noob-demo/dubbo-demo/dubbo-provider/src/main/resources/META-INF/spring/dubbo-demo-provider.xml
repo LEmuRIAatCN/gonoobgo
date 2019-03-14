@@ -34,6 +34,12 @@
     local regular interface -->
     <dubbo:service interface="com.lemuria.gonoobgo.dubbo.DemoService" ref="demoService"/>
     <dubbo:service interface="com.lemuria.gonoobgo.dubbo.TestService" ref="testService"/>
+    <dubbo:service interface="com.lemuria.gonoobgo.dubbo.Service1" ref="service1"/>
+    <dubbo:service interface="com.lemuria.feels.bad.man.Service2" ref="service2"/>
+    <dubbo:service interface="com.lemuria.feels.bad.man.Service3" ref="service3"/>
     <bean id="demoService" class="DemoServiceImpl"/>
     <bean id="testService" class="TestServiceImpl"/>
+    <bean id="service1" class="Service1Impl"/>
+    <bean id="service2" class="Service2Impl"/>
+    <bean id="service3" class="Service3Impl"/>
 </beans>
