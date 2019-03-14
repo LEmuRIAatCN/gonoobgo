@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-import com.alibaba.csp.sentinel.concurrent.NamedThreadFactory;
 import com.lemuria.gonoobgo.dubbo.TestService;
+import io.netty.util.concurrent.DefaultThreadFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.concurrent.ExecutorService;
@@ -24,7 +24,7 @@ import java.util.concurrent.Executors;
 
 public class Consumer {
     private static final ExecutorService pool = Executors.newFixedThreadPool(10,
-            new NamedThreadFactory("dubbo-consumer-pool"));
+            new DefaultThreadFactory("dubbo-consumer-pool"));
 
     /**
      * To get ipv6 address to work, add
@@ -39,7 +39,7 @@ public class Consumer {
         //TestService testService = (TestService) context.getBean("noobService"); // get remote service proxy
         //GenericService noob = (GenericService) context.getBean("noob"); // get remote service proxy
         //while (true) {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1; i++) {
             pool.submit(() -> {
                 try {
 

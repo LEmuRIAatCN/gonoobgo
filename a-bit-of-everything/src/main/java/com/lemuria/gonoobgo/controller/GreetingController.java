@@ -120,5 +120,18 @@ public class GreetingController {
             }
         }
     }
+
+    private volatile boolean boo = false;
+    @RequestMapping("/hello4")
+    @ResponseBody
+    public ModelMap sayHello4() {
+        while(boo = !boo){
+            new Thread(()->{
+                System.out.println("hahah");
+            }).start();
+        }
+        //return map;
+        return new ModelMap();
+    }
 }
 	
