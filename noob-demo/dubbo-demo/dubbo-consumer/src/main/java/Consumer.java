@@ -16,15 +16,11 @@
  */
 
 import com.lemuria.gonoobgo.dubbo.TestService;
-import io.netty.util.concurrent.DefaultThreadFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 public class Consumer {
-    private static final ExecutorService pool = Executors.newFixedThreadPool(10,
-            new DefaultThreadFactory("dubbo-consumer-pool"));
+    /*private static final ExecutorService pool = Executors.newFixedThreadPool(10,
+            new DefaultThreadFactory("dubbo-consumer-pool"));*/
 
     /**
      * To get ipv6 address to work, add
@@ -40,21 +36,22 @@ public class Consumer {
         //GenericService noob = (GenericService) context.getBean("noob"); // get remote service proxy
         //while (true) {
         for (int i = 0; i < 1; i++) {
-            pool.submit(() -> {
-                try {
+            // pool.submit(() -> {
+            try {
 
-                    //Thread.sleep(1000);
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    //Object result = noob.$invoke("sayHello", new String[]{"java.lang.String","java.lang.String"}, new Object[] {"World"," "+i});
-                    ;
-                    System.out.println(testService.tsTest2("asdf", "hahah"));
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    //RpcContext.getContext().setAttachment(i + "", i + "lal");
+                //Thread.sleep(1000);
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                //Object result = noob.$invoke("sayHello", new String[]{"java.lang.String","java.lang.String"}, new Object[] {"World"," "+i});
+                ;
 
-                } catch (Throwable throwable) {
-                    throwable.printStackTrace();
-                }
-            });
+                System.out.println(testService.tsTest2("asdf", "hahah"));
+                System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                //RpcContext.getContext().setAttachment(i + "", i + "lal");
+
+            } catch (Throwable throwable) {
+                throwable.printStackTrace();
+            }
+            //});
         }
         //}
     }
