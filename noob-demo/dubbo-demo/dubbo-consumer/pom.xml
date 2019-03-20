@@ -13,8 +13,13 @@
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.alibaba/dubbo -->
         <dependency>
-            <groupId>com.alibaba</groupId>
+            <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo</artifactId>
+            <version>${dubbo_version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-metadata-report-zookeeper</artifactId>
             <version>${dubbo_version}</version>
         </dependency>
         <dependency>
@@ -24,10 +29,21 @@
         </dependency>
         <dependency>
             <groupId>com.lemuria</groupId>
-            <artifactId>abitofeverything</artifactId>
+            <artifactId>dubbo-interface</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.apache.curator/curator-framework -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.curator/curator-recipes -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>4.1.0</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -1,7 +1,14 @@
 package com.lemuria.gonoobgo.dao;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.stereotype.Component;
 
-public class BaseDAO<T> {
+@Component
+@Data
+public class BaseDAO {
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
 }
