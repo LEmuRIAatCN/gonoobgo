@@ -21,5 +21,6 @@ public class KnowledgeBasePO {
     private String[] tags;
     @TextIndexed(weight = 1F)
     private String content;
+    @Indexed
     private int views;
 }
