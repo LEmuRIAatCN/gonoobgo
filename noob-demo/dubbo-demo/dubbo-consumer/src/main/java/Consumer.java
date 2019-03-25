@@ -16,6 +16,7 @@
  */
 
 import com.lemuria.gonoobgo.dubbo.TestService;
+import org.apache.dubbo.rpc.service.GenericService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Consumer {
@@ -33,17 +34,16 @@ public class Consumer {
         context.start();
         TestService testService = (TestService) context.getBean("testService"); // get remote service proxy
         //TestService testService = (TestService) context.getBean("noobService"); // get remote service proxy
-        //GenericService noob = (GenericService) context.getBean("noob"); // get remote service proxy
+        GenericService noob = (GenericService) context.getBean("genericHelloService"); // get remote service proxy
         //while (true) {
-        for (int i = 0; i < 1; i++) {
+        for (; ; ) {
             // pool.submit(() -> {
             try {
 
-                //Thread.sleep(1000);
+                Thread.sleep(1000);
                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                //Object result = noob.$invoke("sayHello", new String[]{"java.lang.String","java.lang.String"}, new Object[] {"World"," "+i});
-                ;
-
+                Object result = noob.$invoke("sayHello", new String[]{"java.lang.String"}, new Object[] {"World"});
+                System.out.println("generic Results:"+result);
                 System.out.println(testService.tsTest2("asdf", "hahah"));
                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 //RpcContext.getContext().setAttachment(i + "", i + "lal");

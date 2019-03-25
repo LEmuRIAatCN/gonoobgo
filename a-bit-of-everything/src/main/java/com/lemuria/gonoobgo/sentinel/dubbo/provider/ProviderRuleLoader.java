@@ -1,3 +1,4 @@
+/*
 package com.lemuria.gonoobgo.sentinel.dubbo.provider;
 
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
@@ -23,3 +24,4 @@ public class ProviderRuleLoader {
         FlowRuleManager.loadRules(Collections.singletonList(flowRule));
     }
 }
+*/
