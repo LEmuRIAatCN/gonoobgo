@@ -2,7 +2,7 @@ package com.lemuria.gonoobgo.dubbo.provider;
 
 import com.lemuria.gonoobgo.dubbo.DemoService;
 
-public class DemoServiceImpl implements DemoService{
+public class DemoServiceImpl implements DemoService {
 
 	@Override
 	public String sayHello(String hello) {
