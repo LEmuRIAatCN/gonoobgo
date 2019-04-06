@@ -14,7 +14,7 @@
 
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service
-            interface="com.lemuria.gonoobgo.dubbo.DemoService" ref="demoService" tag="tag1"/>
+            interface="com.lemuria.gonoobgo.dubbo.DemoService" ref="demoService" />
     <dubbo:service
             interface="com.lemuria.gonoobgo.dubbo.TestService" ref="testService" accesslog="C:\Users\LEmuRIA\Desktop\heiheihei.log"/>
 
@@ -27,4 +27,8 @@
 
     <bean id="testService"
           class="com.lemuria.gonoobgo.dubbo.provider.TestServiceImpl"/>
+    
+
+    <bean id="noob"
+          class="com.lemuria.gonoobgo.noob.NOOBGenericService"/>
 </beans>

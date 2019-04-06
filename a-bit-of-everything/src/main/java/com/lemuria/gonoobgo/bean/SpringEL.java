@@ -14,10 +14,10 @@ import java.io.IOException;
 @Data
 @Component
 public class SpringEL {
-    @Value("#{prop[a]}")
+    //@Value("#{prop[a]}")
     //@Value("${'a'}")
     private String aaa ="";
-    @Value("#{prop[b]}")
+    //@Value("#{prop[b]}")
     private String bbb = "";
 
     @PostConstruct
