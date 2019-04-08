@@ -10,6 +10,7 @@
     <modules>
         <module>a-bit-of-everything</module>
         <module>noob-demo</module>
+        <module>noob-rpc</module>
     </modules>
     <packaging>pom</packaging>
     <parent>

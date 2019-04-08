@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+import com.lemuria.gonoobgo.dubbo.DemoService;
 import com.lemuria.gonoobgo.dubbo.TestService;
 import org.apache.dubbo.rpc.service.GenericService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -32,19 +33,19 @@ public class Consumer {
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"spring/dubbo-demo-consumer.xml"});
         context.start();
-        TestService testService = (TestService) context.getBean("testService"); // get remote service proxy
+        DemoService demoService = (DemoService) context.getBean("demoService"); // get remote service proxy
         //TestService testService = (TestService) context.getBean("noobService"); // get remote service proxy
         GenericService noob = (GenericService) context.getBean("genericHelloService"); // get remote service proxy
         //while (true) {
-        for (; ; ) {
+        //for (; ; ) {
             // pool.submit(() -> {
             try {
 
                 Thread.sleep(1000);
                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                Object result = noob.$invoke("sayHello", new String[]{"java.lang.String"}, new Object[] {"World"});
-                System.out.println("generic Results:"+result);
-                System.out.println(testService.tsTest2("asdf", "hahah"));
+                //Object result = noob.$invoke("test1", new String[]{"java.lang.String"}, new Object[] {"World"});
+                //System.out.println("generic Results:"+result);
+                System.out.println(demoService.sayHello("asdfhahah"));
                 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 //RpcContext.getContext().setAttachment(i + "", i + "lal");
 
@@ -52,7 +53,7 @@ public class Consumer {
                 throwable.printStackTrace();
             }
             //});
-        }
+        //}
         //}
     }
 }

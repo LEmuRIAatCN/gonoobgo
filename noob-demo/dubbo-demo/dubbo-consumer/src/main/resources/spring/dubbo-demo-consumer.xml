@@ -34,5 +34,6 @@
     <dubbo:reference id="demoService" check="false" interface="com.lemuria.gonoobgo.dubbo.DemoService"/>
     <dubbo:reference id="testService" check="false" interface="com.lemuria.gonoobgo.dubbo.TestService"/>
     <dubbo:reference id="genericHelloService" check="false" interface="com.lemuria.generic.HelloService" generic="true"/>
+    <dubbo:reference id="noob" check="false" interface="org.apache.dubbo.rpc.service.GenericService" generic="true"/>
 
 </beans>
