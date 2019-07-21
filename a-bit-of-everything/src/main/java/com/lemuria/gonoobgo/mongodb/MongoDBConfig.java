@@ -26,7 +26,7 @@ public class MongoDBConfig {
     public @Bean
     MongoDbFactory mongoDbFactory() throws Exception {
 
-        return new SimpleMongoDbFactory(new MongoClient("192.168.119.130"), "lemuria");
+        return new SimpleMongoDbFactory(new MongoClient("192.168.10.17"), "lemuria");
     }
     @Bean
     public MongoTemplate mongoTemplate() throws Exception {
